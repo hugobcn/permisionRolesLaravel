@@ -1,0 +1,19 @@
+Links:
+https://laravel.com/docs/7.x/migrations
+https://laravel.com/docs/7.x/seeding
+https://styde.net/insercion-de-datos-con-los-seeders-de-laravel/
+
+consola:
+
+ php artisan make:seed RolesTableSeeder                         
+ php artisan make:seed UsersTableSeeder 
+
+final al crear y modificar semillas:
+php artisan db:seed
+ 
+
+
+
+
+
+

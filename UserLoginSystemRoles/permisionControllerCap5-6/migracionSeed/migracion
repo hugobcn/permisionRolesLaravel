@@ -1,0 +1,64 @@
+Links:
+
+https://laravel.com/docs/7.x/migrations
+
+https://laravel.com/docs/master/migrations#creating-indexes
+
+buscar proyecto laravel: AppServiceProvider 
+
+añadir en archivo, para evitar errores en  migracion:
+
+use Schema; 
+
+
+
+public function boot()
+{
+    Schema::defaultStringLength(191);
+}
+
+-----------------------------------------------
+
+Crear modelo y tabla migracion: 
+
+php artisan make:model Role -m
+
+
+añadir en database/migrations/xxxxxxx_create_roles_table:
+
+$table->string('name');
+
+public function up()
+    {
+        Schema::create('roles', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
+        });
+    }
+
+
+php artisan make:migration create_roles_user_table
+
+
+añadir en database/migrations/xxxxxxx_create_roles_user_table:
+
+public function up()
+    {
+        Schema::create('roles_user', function (Blueprint $table) {
+            $table->id();
+            $table->integer('role_id')->unsigned();
+            $table->integer('user_id')->unsigned();    
+            $table->timestamps();
+        });
+    }
+
+
+
+php artisan migrate
+
+
+
+
+
+

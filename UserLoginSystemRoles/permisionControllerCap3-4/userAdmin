@@ -1,0 +1,8 @@
+https://www.youtube.com/watch?v=McSMB1QLxUI&list=PLxFwlLOncxFLazmEPiB4N0iYc3Dwst6m4&index=2
+
+cd   /var/www/hugo/prLab/formulario-laravel
+
+php artisan make:controller \\Admin\\UsersController  -r -mUser
+
+Despues de poner ruta web:
+hugoberpar@debian:/var/www/hugo/prLab/formulario-laravel$ php artisan route:list       
