@@ -1,0 +1,19 @@
+app/http/controllers/auth
+
+
+use App\Role;
+
+  protected function create(array $data)
+    {
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
+        //crear usuario acon role automatico usuario
+        $role  = Role::select('id')->where('name','user')->first();
+        
+        $user->roles()->attach($role);
+        
+        return $user;
+    }

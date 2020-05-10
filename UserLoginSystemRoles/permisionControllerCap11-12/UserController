@@ -1,0 +1,18 @@
+app/http/controllers/admin
+
+ public function update(Request $request, User $user)
+    {
+       //dd($request);
+        //dd($request->role);
+        
+        $user->roles()->sync($request->role);
+        
+        $user->name= $request->name;
+        $user->email= $request->email;
+        
+        //dd($user);
+        $user->save();
+        //dd($user->roles()->sync($request->roles));
+        return redirect()->route('admin.users.index')->with(['message' => 'OK, permisos cambiados']);
+    }
+
